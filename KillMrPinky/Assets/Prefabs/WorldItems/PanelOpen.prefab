@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 3458254173122770888}
   m_Layer: 0
   m_Name: PanelOpen
-  m_TagString: Untagged
+  m_TagString: WorldItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3458254173122770900
 Transform:
   m_ObjectHideFlags: 0

@@ -191,6 +191,7 @@ public class SelectionController : MonoBehaviour{
     void HandleDoor(Door d){
         if (d.canEnter){
             SceneManager.LoadScene(d.linkedScene);
+            GetComponentInParent<Inventory>().resetPositions();
         }
         else {
             GetComponentInParent<MessageSystem>().showMessage(d.reactionText[0]);

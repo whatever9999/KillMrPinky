@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 513770667}
   - component: {fileID: 513770666}
   - component: {fileID: 513770665}
+  - component: {fileID: 513770668}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -194,6 +195,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &513770668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513770664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5100bef8ca3fe244098475be38d2f9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inv: {fileID: 0}
 --- !u!1 &530252454
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +697,7 @@ GameObject:
   - component: {fileID: 1658549088}
   m_Layer: 0
   m_Name: LiftOperator
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,8 +766,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1529648135
-  m_SortingLayer: 2
+  m_SortingLayerID: -1103827023
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fd945f9405511f0488240de18fda7a4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -950,6 +964,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PanelClosed
       objectReference: {fileID: 0}
+    - target: {fileID: 1485423193404167963, guid: f4b14d3c4b930ee47936ae9560f9eecf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1485423193404167967, guid: f4b14d3c4b930ee47936ae9560f9eecf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1019,6 +1038,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirstButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2006487528095726539, guid: 6beb3bade53a62b4a8ed029455ce18b0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 2006487528095726536, guid: 6beb3bade53a62b4a8ed029455ce18b0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1087,6 +1111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PanelOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458254173122770891, guid: b5e01e105a682af41a9b4fea438e5603,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3458254173122770900, guid: b5e01e105a682af41a9b4fea438e5603,
         type: 3}
@@ -1226,6 +1255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5623188461232660665, guid: e2fa71cfbe7dcb74d85622104a304023,
+        type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 5623188461232660660, guid: e2fa71cfbe7dcb74d85622104a304023,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1281,6 +1315,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5623188461232660661, guid: e2fa71cfbe7dcb74d85622104a304023,
+        type: 3}
+      propertyPath: canEnter
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2fa71cfbe7dcb74d85622104a304023, type: 3}
 --- !u!1001 &8372018777287378916
@@ -1294,6 +1333,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SecondButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372018777829212815, guid: def4fab077ee93744b85991fd44ccc93,
+        type: 3}
+      propertyPath: m_TagString
+      value: Door
       objectReference: {fileID: 0}
     - target: {fileID: 8372018777829212811, guid: def4fab077ee93744b85991fd44ccc93,
         type: 3}

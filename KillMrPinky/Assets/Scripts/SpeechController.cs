@@ -370,8 +370,8 @@ public class SpeechController : MonoBehaviour {
                         s.speech = ("The nutcase has given you the cog?");
                         break;
                 }
-                s.options.Add(new Option("Uhh...no?", choice == 1 && !gs.gotCog));
-                s.options.Add(new Option("Yep!Right here!", choice == 1 && gs.gotCog));
+                s.options.Add(new Option("Uhh...no?", choice == 2 && !gs.gotCog));
+                s.options.Add(new Option("Yep!Right here!", choice == 2 && gs.gotCog));
                 s.options.Add(new Option("Can I ask some more questions? (Go back)", true));
                 s.options.Add(new Option("Goodbye", true));
                 break;
@@ -379,6 +379,7 @@ public class SpeechController : MonoBehaviour {
                 switch (choice) {
                     case 1:
                         s.speech = ("I'm sorry but if you expect to fix the lift with nothing then it's not the only thing with a missing part...");
+                        gs.spokenToLiftOperator = true;
                         break;
                     case 2:
                         s.speech = ("So you sucked up to him? I guess someone had to do it. Get on with it then. Here's the screwdriver.");

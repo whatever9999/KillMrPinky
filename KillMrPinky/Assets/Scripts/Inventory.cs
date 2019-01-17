@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
             items[i] = -1;
         }
         displayItems = new GameObject[8];
+        DontDestroyOnLoad(this);
     }
 
     public void Remove(Item item) {
@@ -22,7 +23,7 @@ public class Inventory : MonoBehaviour
             if (item.ID == items[i]) {
                 found = true;
                 items[i] = -1;
-                displayItems[i].SetActive(false);
+                Destroy(displayItems[i]);
             }
         }
     }
@@ -44,6 +45,23 @@ public class Inventory : MonoBehaviour
         displayItems[location].transform.position = position;
         //TODO Investigate layers
     }
+
+    public void resetPositions() {
+        for (int i = 0; i < displayItems.Length; i++) {
+            try {
+                GameObject go = displayItems[i];
+                Destroy(displayItems[i]);
+                displayItems[i] = Instantiate(go, new Vector2(-8.75f + (i), 4.85f), Quaternion.identity); //-8.9,5  is the top left
+                Vector3 position = displayItems[i].transform.position;
+                position.z -= 1.1f;
+                displayItems[i].transform.position = position;
+            }
+            catch (System.Exception e) {
+                Debug.Log("ERROR AT " + i);
+            }
+        }
+    }
+
     GameObject getDisplayItem(int ID) {
         for (int i = 0; i < ItemPrefabs.Length; i++) {
             if (ItemPrefabs[i].GetComponent<Item>().ID == ID) return ItemPrefabs[i];
