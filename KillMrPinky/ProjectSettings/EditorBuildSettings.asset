@@ -9,21 +9,48 @@ EditorBuildSettings:
     path: Assets/Scenes/Testing Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 36a418fb2cd4cda49bbdc93739e03f17
-  - enabled: 1
     path: Assets/Scenes/Office.unity
     guid: 9400082a481487142b4720569d3a3b00
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: d8441fe46f5b23b458df0d4a30f60052
   - enabled: 1
+    path: Assets/Scenes/Elevator.unity
+    guid: 42224218e5bbfb7428d972ef59cb9ad7
+  - enabled: 1
     path: Assets/Scenes/Landing.unity
     guid: 934c01c7ea2c8dc4fb9f87cdb1d814df
+  - enabled: 1
+    path: Assets/Scenes/Pool.unity
+    guid: db79045abdf7583499b078b9221b55fe
   - enabled: 1
     path: Assets/Scenes/MrsLudwig.unity
     guid: 51a4b91c7c2fdfa4b9a1a070179bcc4e
   - enabled: 1
-    path: Assets/Scenes/Pool.unity
-    guid: db79045abdf7583499b078b9221b55fe
+    path: Assets/Scenes/MrJaques.unity
+    guid: b392eab8d1aa315449c4ef9b11f40a5e
+  - enabled: 1
+    path: Assets/Scenes/BasementStairs.unity
+    guid: 3550088947effd34db7e85eae5278ee3
+  - enabled: 1
+    path: Assets/Scenes/Basement.unity
+    guid: 2a8a0eae3d8e9ee469e6bf898e19c4dd
+  - enabled: 1
+    path: Assets/Scenes/Incinerator Room.unity
+    guid: 565c2e69d6603414296ddc9f570a399f
+  - enabled: 1
+    path: Assets/Scenes/Kitchens.unity
+    guid: c21ca0d5d8fe290478fa5ecb469ee34a
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 36a418fb2cd4cda49bbdc93739e03f17
+  - enabled: 1
+    path: Assets/Scenes/PuzzlePin.unity
+    guid: c362a8e79c0c87d409befcb68e4728b8
+  - enabled: 1
+    path: Assets/Scenes/LuggageTetris.unity
+    guid: dcc58a5094736e040bdee184eebddc5b
+  - enabled: 1
+    path: Assets/Scenes/KeyFishing.unity
+    guid: 62a58ce7e8031694a99b154a8f7b1b9f
   m_configObjects: {}
