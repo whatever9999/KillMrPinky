@@ -82,6 +82,7 @@ public class SpeechController : MonoBehaviour{
     }
 
     public void HandleChoice1(){
+        Debug.Log("Button 1");
         progressSpeech(1);
     }
     public void HandleChoice2(){

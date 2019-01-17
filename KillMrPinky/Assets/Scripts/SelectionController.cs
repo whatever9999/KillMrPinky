@@ -20,7 +20,7 @@ public class SelectionController : MonoBehaviour{
 
     private List<int> clickedItems;
 
-    private enum GameType {Main, Message, Bags, Pool, paper}
+    private enum GameType {Main, Message, Speech, Bags, Pool, paper}
     GameType gt;
 
     // Start is called before the first frame update
@@ -38,8 +38,10 @@ public class SelectionController : MonoBehaviour{
     void Update(){
         if (gt == GameType.Main) {
             if (Input.GetMouseButtonDown(0)) {
+                Debug.Log("Clicked!");
                 clickTarget = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, -1f).transform;
                 if (clickTarget != null) {
+                    Debug.Log("HIT");
                     clickLocation = new Vector2((Input.mousePosition.x), (Input.mousePosition.y));
                     itemGrabbedPosition = clickTarget.position;
                     if (clickTarget.tag == "InventoryItem") didClickItem = true;
@@ -149,7 +151,7 @@ public class SelectionController : MonoBehaviour{
         yield return new WaitForSeconds(1);
         SleepingDoctor.SetActive(true);
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         yield return null;
     }
 
@@ -174,7 +176,12 @@ public class SelectionController : MonoBehaviour{
 
     void HandleCharacter(Character c) {
         Debug.Log("TRYING TO TALK");
+        gt = GameType.Speech;
         GetComponentInParent<SpeechController>().beginSpeech(c.ID);
         //TODO
+    }
+
+    public void setToDefaultGameType() {
+        gt = GameType.Main;
     }
 }

@@ -23,5 +23,6 @@ public class MessageSystem : MonoBehaviour{
 
     public void closeMessage() {
         messageCanvas.enabled = false;
+        GetComponentInParent<SelectionController>().setToDefaultGameType();
     }
 }
