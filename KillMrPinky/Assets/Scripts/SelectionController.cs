@@ -38,10 +38,8 @@ public class SelectionController : MonoBehaviour{
     void Update(){
         if (gt == GameType.Main) {
             if (Input.GetMouseButtonDown(0)) {
-                Debug.Log("Clicked!");
                 clickTarget = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, -1f).transform;
                 if (clickTarget != null) {
-                    Debug.Log("HIT");
                     clickLocation = new Vector2((Input.mousePosition.x), (Input.mousePosition.y));
                     itemGrabbedPosition = clickTarget.position;
                     if (clickTarget.tag == "InventoryItem") didClickItem = true;
@@ -183,5 +181,8 @@ public class SelectionController : MonoBehaviour{
 
     public void setToDefaultGameType() {
         gt = GameType.Main;
+    }
+
+    public void startLuggageMinigame() {//TODO
     }
 }

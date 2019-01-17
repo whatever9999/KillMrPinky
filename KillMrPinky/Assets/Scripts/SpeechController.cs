@@ -55,6 +55,7 @@ public class SpeechController : MonoBehaviour{
         speechText.text = currentStage.speech;
         if (currentStage.speech == "EXIT") {
             ExitSpeech();
+            GetComponentInParent<SelectionController>().setToDefaultGameType();
         }
         else if (currentStage.speech == "BACK") {
             beginSpeech(currentStage.characterID);
@@ -106,7 +107,6 @@ public class SpeechController : MonoBehaviour{
 
     //Gets a stage object which containts speech and choices for replies
     private Stage GetStage(int characterID, int stageIndex, int choice) {
-        Debug.Log(characterID);
         Stage s = new Stage();
         switch (characterID) {
             case 9:
@@ -116,6 +116,10 @@ public class SpeechController : MonoBehaviour{
             case 17:
                 s = GetConciergeSpeech(stageIndex, choice);
                 break;
+            case 18:
+                s = GetLobbyBoySpeech(stageIndex, choice);
+                break;
+
         }
         s.stageIndex = stageIndex;
         s.characterID = characterID;
@@ -280,6 +284,45 @@ public class SpeechController : MonoBehaviour{
                         break;
                     case 2:
                         s.speech = ("EXIT");
+                        break;
+                }
+                break;
+        }
+        return s;
+    }
+
+    private Stage GetLobbyBoySpeech(int stageIndex, int choice) {
+        Stage s = new Stage();
+        switch (stageIndex) {
+            case 0:
+                if (!gs.spokenToConcierge) s.speech = ("Agh! Please don't scare me like that! I'm sorry sir but I cannot help you. Could you ask the man at the front desk instead please, thank you, sorry.");
+                else if (gs.spokenToConcierge && !gs.helpedLobbyBoy) s.speech = ("Eep, sorry, why are you talking to me? Sorry? Thank you, sorry?");
+                else if (gs.spokenToConcierge && gs.helpedLobbyBoy) s.speech = ("Ahhh, I feel so much better now you've helped me with those suitcases! Thank you so much sir!");
+                s.options.Add(new Option("Sorry. I didn't mean to startle you.",!gs.spokenToConcierge));
+                s.options.Add(new Option("was thinking that I could help you with those cases if you like?", gs.spokenToConcierge && !gs.helpedLobbyBoy));
+                s.options.Add(new Option("Goodbye", true));
+                break;
+            case 1:
+                switch (choice) {
+                    case 1:
+                        s.speech = ("Hnng, that's okay. Sorry!");
+                        break;
+                    case 2:
+                        s.speech = ("Oh yes please sir if you wouldn't mind! I'll throw them to you and you can put them in the trolly.");
+                        break;
+                    case 3:
+                        s.speech = ("EXIT");
+                        break;
+                }
+                s.options.Add(new Option("Doesn't that overcomplicate things a bit?", choice == 2));
+                s.options.Add(new Option("Can I ask some more questions? (Go back)", true));
+                s.options.Add(new Option("Goodbye", true));
+                break;
+            case 2:
+                switch (choice) {
+                    case 1:
+                        s.speech = ("We're in a rush sir! We must do this now! Thank you. Sorry.");
+
                         break;
                 }
                 break;
