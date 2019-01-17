@@ -12,6 +12,8 @@ public class GameState : MonoBehaviour{
     public bool insultedHat;
     public bool gotCog;
 
+    public bool patientAwake;
+
     // Start is called before the first frame update
     void Start(){
         spokenToConcierge = false;
@@ -21,11 +23,16 @@ public class GameState : MonoBehaviour{
         helpedLobbyBoy = false;
         insultedHat = false;
         gotCog = false;
+        patientAwake = false;
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void Awake(){
+        DontDestroyOnLoad(this.gameObject);
     }
 }

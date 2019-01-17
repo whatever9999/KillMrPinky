@@ -17,24 +17,37 @@ public class SpeechController : MonoBehaviour{
         speechCanvas.enabled = false;
     }
 
+    private void Awake(){
+        DontDestroyOnLoad(speechCanvas);
+    }
+
     public void beginSpeech(int characterID) {
         currentStage = GetStage(characterID, 0, 0); //0,0 at the end to indicate the first stage of speech
             speechText.text = currentStage.speech;
-            for (int i = 0; i < choiceButtons.Length && i < currentStage.options.Count; i++){
-                if (currentStage.options[i].enabled){
+        if (currentStage.speech == "EXIT"){
+            ExitSpeech();
+        }
+        else{
+            for (int i = 0; i < choiceButtons.Length && i < currentStage.options.Count; i++)
+            {
+                if (currentStage.options[i].enabled)
+                {
                     choiceButtons[i].interactable = true;
                     choiceButtons[i].GetComponentInChildren<Text>().text = currentStage.options[i].text;
                 }
-                else{
+                else
+                {
                     choiceButtons[i].GetComponentInChildren<Text>().text = "";
                     choiceButtons[i].interactable = false;
                 }
             }
-            for (int i = currentStage.options.Count; i < choiceButtons.Length; i++) {
+            for (int i = currentStage.options.Count; i < choiceButtons.Length; i++)
+            {
                 choiceButtons[i].GetComponentInChildren<Text>().text = "";
                 choiceButtons[i].interactable = false;
             }
             speechCanvas.enabled = true;
+        }
     }
 
     void progressSpeech(int choice) {
@@ -92,8 +105,13 @@ public class SpeechController : MonoBehaviour{
 
     //Gets a stage object which containts speech and choices for replies
     private Stage GetStage(int characterID, int stageIndex, int choice) {
+        Debug.Log(characterID);
         Stage s = new Stage();
         switch (characterID) {
+            case 9:
+                if (gs.patientAwake) s = getPatientSpeech(stageIndex, choice);
+                else s.speech = "EXIT";
+                break;
             case 17:
                 s = GetConciergeSpeech(stageIndex, choice);
                 break;
@@ -266,6 +284,11 @@ public class SpeechController : MonoBehaviour{
                 break;
         }
         return s;
+    }
+
+    private Stage getPatientSpeech(int stageIndex, int choice) {
+        //TODO
+        return null;
     }
 
     private void ExitSpeech() {

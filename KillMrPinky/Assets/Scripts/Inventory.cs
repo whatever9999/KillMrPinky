@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public GameObject[] positions;
     private int[] items;
     public GameObject[] ItemPrefabs;
     private GameObject[] displayItems;
@@ -15,6 +14,17 @@ public class Inventory : MonoBehaviour
             items[i] = -1;
         }
         displayItems = new GameObject[8];
+    }
+
+    public void Remove(Item item) {
+        bool found = false;
+        for (int i = 0; i < items.Length && !found; i++) {
+            if (item.ID == items[i]) {
+                found = true;
+                items[i] = -1;
+                displayItems[i].SetActive(false);
+            }
+        }
     }
 
     public void Add(int ID) {
@@ -28,7 +38,10 @@ public class Inventory : MonoBehaviour
             }
         }
         GameObject go = getDisplayItem(ID); 
-        displayItems[location] = Instantiate(go, new Vector2(-8.25f + (location), 4.35f), Quaternion.identity); //-8.9,5  is the top left
+        displayItems[location] = Instantiate(go, new Vector2(-8.75f + (location), 4.85f), Quaternion.identity); //-8.9,5  is the top left
+        Vector3 position = displayItems[location].transform.position;
+        position.z -= 1.1f;
+        displayItems[location].transform.position = position;
         //TODO Investigate layers
     }
     GameObject getDisplayItem(int ID) {
