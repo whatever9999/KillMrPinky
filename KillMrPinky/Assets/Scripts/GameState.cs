@@ -11,6 +11,12 @@ public class GameState : MonoBehaviour{
     public bool foundOutAboutFeud;
     public bool insultedHat;
     public bool gotCog;
+    public bool gotWine;
+    public bool fixedLift;
+    public bool gotJournal;
+    public bool got002Pin;
+    public bool knowsAboutWine;
+    public bool deliveredWine;
 
     public bool patientAwake;
 
@@ -23,7 +29,13 @@ public class GameState : MonoBehaviour{
         helpedLobbyBoy = false;
         insultedHat = false;
         gotCog = false;
+        gotJournal = false;
+        got002Pin = false;
+        gotWine = false;
         patientAwake = false;
+        fixedLift = false;
+        knowsAboutWine = false;
+        deliveredWine = false;
     }
 
     // Update is called once per frame
