@@ -107,6 +107,7 @@ public class SpeechController : MonoBehaviour {
 
     //Gets a stage object which containts speech and choices for replies
     private Stage GetStage(int characterID, int stageIndex, int choice) {
+        Debug.Log("Open Speech");
         Stage s = new Stage();
         switch (characterID) {
             case 9:
@@ -203,6 +204,7 @@ public class SpeechController : MonoBehaviour {
                     case 3:
                         s.speech = ("Ooooh a good fashionista never reveals his secrets I'm afraid. But for your good taste I will certainly give you the cog so you can fix the lift.");
                         gs.gotCog = true;
+                        GetComponentInParent<Inventory>().Add(21);
                         //TODO Give cog
                         break;
                     case 4:
@@ -379,7 +381,8 @@ public class SpeechController : MonoBehaviour {
                         s.speech = ("I'm sorry but if you expect to fix the lift with nothing then it's not the only thing with a missing part...");
                         break;
                     case 2:
-                        s.speech = ("So you sucked up to him? I guess someone had to do it. Get on with it then. ");
+                        s.speech = ("So you sucked up to him? I guess someone had to do it. Get on with it then. Here's the screwdriver.");
+                        GetComponentInParent<Inventory>().Add(29);
                         break;
                     case 3:
                         s.speech = "BACK";
@@ -388,6 +391,10 @@ public class SpeechController : MonoBehaviour {
                         s.speech = "EXIT";
                         break;
                 }
+                s.options.Add(new Option("Goodbye.",true));
+                break;
+            case 3:
+                s.speech = "EXIT";
                 break;
         }
         return s;

@@ -210,6 +210,12 @@ MonoBehaviour:
   SleepingDoctor: {fileID: 0}
   DDDOnPatient: {fileID: 0}
   DDDInHand: {fileID: 0}
+  PanelClosed: {fileID: 0}
+  PanelOpen: {fileID: 0}
+  PanelFixed: {fileID: 0}
+  FirstButton: {fileID: 0}
+  SecondButton: {fileID: 0}
+  GroundButton: {fileID: 0}
 --- !u!1 &469632710
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +351,7 @@ MonoBehaviour:
   - {fileID: 1921697766009814616, guid: 0df74f2527645274aafd07d981056439, type: 3}
   - {fileID: 9219191819879062986, guid: a6c854adb1273da41b5c9b72fed70934, type: 3}
   - {fileID: 5774931775340612551, guid: d6eb1a5157c6d444491a12416600ba97, type: 3}
+  - {fileID: 8070328961693959965, guid: 0c4ee352a63bfc74aaf0baad36532fa8, type: 3}
 --- !u!114 &515639360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +383,18 @@ MonoBehaviour:
   SleepingDoctor: {fileID: 4529277752046645658}
   DDDOnPatient: {fileID: 1945140608}
   DDDInHand: {fileID: 781370172}
+  PanelClosed: {fileID: 1485423193404167963, guid: f4b14d3c4b930ee47936ae9560f9eecf,
+    type: 3}
+  PanelOpen: {fileID: 3458254173122770891, guid: b5e01e105a682af41a9b4fea438e5603,
+    type: 3}
+  PanelFixed: {fileID: 4813247020400840577, guid: ce63e62b022ed524ba450e1fe21f1415,
+    type: 3}
+  FirstButton: {fileID: 2006487528095726539, guid: 6beb3bade53a62b4a8ed029455ce18b0,
+    type: 3}
+  SecondButton: {fileID: 8372018777829212815, guid: def4fab077ee93744b85991fd44ccc93,
+    type: 3}
+  GroundButton: {fileID: 5623188461232660665, guid: e2fa71cfbe7dcb74d85622104a304023,
+    type: 3}
 --- !u!114 &515639362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +440,12 @@ MonoBehaviour:
   foundOutAboutFeud: 0
   insultedHat: 0
   gotCog: 0
+  gotWine: 0
+  fixedLift: 0
+  gotJournal: 0
+  got002Pin: 0
+  knowsAboutWine: 0
+  deliveredWine: 0
   patientAwake: 0
 --- !u!4 &515639364
 Transform:
@@ -1842,6 +1867,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameState
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251613911049379887, guid: b21126ad82b15ca4295d513d0f58bf50,
+        type: 3}
+      propertyPath: ItemPrefabs.Array.size
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 8251613911049379920, guid: b21126ad82b15ca4295d513d0f58bf50,
         type: 3}

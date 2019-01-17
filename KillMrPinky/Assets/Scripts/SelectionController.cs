@@ -15,6 +15,14 @@ public class SelectionController : MonoBehaviour{
     public GameObject DDDOnPatient;
     public GameObject DDDInHand;
 
+    public GameObject PanelClosed;
+    public GameObject PanelOpen;
+    public GameObject PanelFixed;
+    public GameObject FirstButton;
+    public GameObject SecondButton;
+    public GameObject GroundButton;
+    
+
     private Transform clickTarget;
     private Transform releaseTarget;
 
@@ -139,6 +147,18 @@ public class SelectionController : MonoBehaviour{
             GetComponentInParent<Inventory>().Add(11);
         } else if (item.ID == 11 && GetPropID(T2) == 9) {
             StartCoroutine(ToSleep());
+        } else if (item.ID == 29 && GetPropID(T2) == 90) {
+            PanelClosed.SetActive(false);
+            PanelOpen.SetActive(true);
+            GetComponentInParent<Inventory>().Add(86);
+        } else if (item.ID == 21 && GetPropID(T2) == 92) {
+            PanelOpen.SetActive(false);
+            PanelFixed.SetActive(true);
+        } else if (item.ID == 82 && GetPropID(T2) == 91) {
+            PanelFixed.SetActive(false);
+            PanelClosed.SetActive(true);
+            FirstButton.GetComponent<Door>().canEnter = true;
+            SecondButton.GetComponent<Door>().canEnter = true;
         }
         Destroy(item.gameObject);
         //TODO
@@ -149,7 +169,7 @@ public class SelectionController : MonoBehaviour{
         yield return new WaitForSeconds(1);
         SleepingDoctor.SetActive(true);
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
         yield return null;
     }
 
@@ -168,7 +188,14 @@ public class SelectionController : MonoBehaviour{
         gt = GameType.Message;
     }
 
-    void HandleDoor(Door d) {
+    void HandleDoor(Door d){
+        if (d.canEnter){
+            SceneManager.LoadScene(d.linkedScene);
+        }
+        else {
+            GetComponentInParent<MessageSystem>().showMessage(d.reactionText[0]);
+            gt = GameType.Message;
+        }
         //TODO
     }
 

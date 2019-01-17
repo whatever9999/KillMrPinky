@@ -746,7 +746,7 @@ MonoBehaviour:
   linkedItem: -1
   canEnter: 1
   reactionText: []
-  linkedScene: 3
+  linkedScene: 1
 --- !u!58 &1936388979
 CircleCollider2D:
   m_ObjectHideFlags: 0
